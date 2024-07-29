@@ -32,13 +32,17 @@ const Title = ()=>(
     </h1>
 );
 
+const data = 10000;
+
 // Component Composition (component inside component)
 const HeadingComponent = () =>(
     <div id="container">
-        <Title/> 
+        <Title/> {/*can use {Title()} or <Title></Title>*/ }
+        {data}
         <h1 className="heading">Hello World from functional Component</h1>
     </div>
 );
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<HeadingComponent />)
+
