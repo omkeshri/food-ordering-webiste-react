@@ -36,8 +36,9 @@
     border: 1px solid black;
     cursor: pointer;
 }
-.search{
+.filter{
     padding: 10px;
+    display: flex;
 }
 
 .res-logo{
@@ -61,4 +62,8 @@
 .login{
     cursor: pointer;
     padding: 0 20px;
+}
+
+.filter-btn{
+    margin-left: 10px;
 }
