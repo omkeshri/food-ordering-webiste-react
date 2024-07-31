@@ -2,7 +2,7 @@ const resList = [
     {
       info: {
         id: "207405",
-        name: "Master Chef Fast Food",
+        name: "Mister Chef Fast Food",
         cloudinaryImageId: "bzl9r76teclhpjdkse84",
         locality: "Guru Hargobind Nagar",
         areaName: "Phagwara Central",
