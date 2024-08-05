@@ -83,7 +83,7 @@ const Body = () => {
           Top Rated Restaurant
         </button>
       </div>
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap m-2">
         {filteredRestaurants.map((restaurant) => (
           <Link
             to={"/restaurants/" + restaurant.info.id}

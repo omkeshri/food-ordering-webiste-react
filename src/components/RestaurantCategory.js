@@ -1,12 +1,20 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Item from "./Item";
 const RestaurantCategory = ({ data }) => {
   const [showItems, setshowItems] = useState(false);
+  const [height, setHeight] = useState(0);
+  const itemRef = useRef(null);
   const handleClick = () => {
     {
       !showItems ? setshowItems(true) : setshowItems(false);
     }
   };
+
+  useEffect(() => {
+    if (itemRef.current) {
+      setHeight(showItems ? itemRef.current.scrollHeight : 0);
+    }
+  }, [showItems]);
 
   return (
     <div>
@@ -15,16 +23,25 @@ const RestaurantCategory = ({ data }) => {
           className="flex justify-between cursor-pointer"
           onClick={handleClick}
         >
-          <span className="font-medium text-black text-lg">
-            {data.title} ({data.itemCards.length})
+          <span className="font-medium text-black text-md">
+            {data.title.toUpperCase()} ({data.itemCards.length})
           </span>
-          {showItems ? (
-            <span className=" scale-x-100 scale-y-[-1]">🔻</span>
-          ) : (
-            <span>🔻</span>
-          )}
+          <span
+            className={`transition-transform duration-300 ${
+              showItems ? "rotate-180" : ""
+            }`}
+          >
+            🔻
+          </span>
         </div>
-        {showItems && <Item items={data.itemCards} />}
+
+        <div
+            ref={itemRef}
+            style={{ maxHeight: `${height}px` }}
+            className="overflow-hidden transition-all duration-1000 ease-in-out"
+         >
+           {showItems && <Item items={data.itemCards} />}
+         </div>
       </div>
     </div>
   );
