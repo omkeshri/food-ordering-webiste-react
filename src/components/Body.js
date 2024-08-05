@@ -77,8 +77,7 @@ const Body = () => {
             const filterList = listofRestaurant.filter(
               (res) => res.info.avgRating > 4.5
             );
-            setListofRestaurant(filterList);
-            console.log(filterList);
+            setfilteredRestaurant(filterList);
           }}
         >
           Top Rated Restaurant

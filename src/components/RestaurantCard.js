@@ -31,15 +31,14 @@ const RestaurantCard = (props) => {
 export const withPromotedLabel = (RestaurantCard) => {
   return (props) =>{
     const {resData} = props;
-    return resData.info.isOpen ? (
+    return resData.info.avgRating>=4.5 ? (
       <div>
-        <label className="pl-4 ml-1 absolute bg-gray-300 rounded-md font-medium">Live🟢</label>
+        <label className="py-1 px-3 ml-1  absolute bg-amber-400 rounded-md font-medium text-xs">Top-Rated</label>
         <RestaurantCard {...props}/>
       </div>
       ):
     (
     <div>
-      <label className="pl-4 ml-1 absolute bg-gray-300 rounded-md font-medium">Live🔴</label>
       <RestaurantCard {...props}/>
     </div>
     );

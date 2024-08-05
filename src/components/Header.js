@@ -29,7 +29,7 @@ const online = useOnlineStatus();
             <Link to={"/"}>Cart</Link></li>
         </ul>
           <button
-            className = "px-4 mr-5 py-2 bg-indigo-100 font-medium border-2 border-indigo-400 border-x-indigo-800 hover:bg-indigo-200"
+            className = "px-4 mr-5 py-2 bg-indigo-100 font-medium border-2 border-indigo-400 border-x-indigo-800 hover:bg-indigo-200 rounded-md"
             onClick={() => {
               btnName === "LogIn" ? setbtnName("LogOut") : setbtnName("LogIn");
             }}
