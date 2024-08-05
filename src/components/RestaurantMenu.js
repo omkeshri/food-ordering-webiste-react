@@ -1,6 +1,7 @@
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../util/useRestaurantMenu";
+import RestaurantCategory from "./RestaurantCategory";
 
 const RestaurantMenu = () => {
   // const [resInfo, setresInfo] = useState(null);
@@ -23,41 +24,22 @@ const RestaurantMenu = () => {
   const { itemCards } =
     resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
   const { cards } = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR;
-  // console.log(cards);
-
+  const categories =
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+      (c) =>
+        c.card?.card?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
   return (
-    <div className="restaurant-menu">
-      <h1>{name}</h1>
-      <h3>{cuisines.join(", ")}</h3>
-      <h3>{costForTwoMessage}</h3>
-      {/* <ul>
-        {itemCards.map((item) => (
-          <li key={item?.card?.info?.id}>
-            {item?.card?.info?.name} - {item?.card?.info?.price / 100}
-          </li>
+    <div className="m-2 text-center">
+      <h1 className="font-bold text-2xl">{name}</h1>
+      <h3 className="font-medium  text-xl">{cuisines.join(", ")}</h3>
+      <h3 className="font-medium">{costForTwoMessage}</h3>
+      <div className="m-auto">
+        {categories.map((category) => (
+          <RestaurantCategory key={category?.card?.card?.title} data={category?.card?.card} />
         ))}
-      </ul> */}
-      <hr></hr>
-      <ul>
-        {cards.map((item, index) => {
-          if (index !== 0 && index !== 1 && index !== 30 && index !== 31) {
-            console.log({ item });
-            return (
-              <li key={index}>
-                <h2>{item?.card?.card?.title}</h2>
-                <ul>
-                  {item?.card?.card?.itemCards?.map((subItem) => (
-                    <li key={subItem?.card?.info?.id}>
-                      {subItem?.card?.info?.name} - {subItem?.card?.info?.price / 100}
-                    </li>
-                  ))}
-                </ul>
-              </li>
-            );
-          }
-          return null; // Return null for the indices that are not to be rendered
-        })}
-      </ul>
+      </div>
     </div>
   );
 };
