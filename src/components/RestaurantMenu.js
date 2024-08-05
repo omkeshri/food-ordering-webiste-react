@@ -37,6 +37,7 @@ const RestaurantMenu = () => {
           </li>
         ))}
       </ul> */}
+      <hr></hr>
       <ul>
         {cards.map((item, index) => {
           if (index !== 0 && index !== 1 && index !== 30 && index !== 31) {
