@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Header from "./components/Header";
@@ -7,6 +7,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
+import UserContext from "./util/USerContext";
 
 // const heading = React.createElement("h1", { id: "heading" }, "Hello World from React!");
 // console.log(heading) // will give an object react
@@ -58,11 +59,22 @@ import RestaurantMenu from "./components/RestaurantMenu";
 const Grocery = lazy(() => import("./components/Grocery"));
 
 const AppLayout = () => {
+  const [userName, setuserName] = useState();
+  
+  useEffect(() => {
+    // Make an Api call and send username and password
+    const data = {
+      name: "Om Keshri",
+    };
+    setuserName(data.name);
+  }, []);
   return (
-    <div className="app">
-      <Header />
-      <Outlet />
-    </div>
+    <UserContext.Provider value={{ loggedInUser: userName }}>
+      <div className="app">
+        <Header />
+        <Outlet />
+      </div>
+    </UserContext.Provider>
   );
 };
 
@@ -85,7 +97,11 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/grocery",
-        element: <Suspense fallback={<h1>Loading..</h1>}><Grocery /></Suspense>,
+        element: (
+          <Suspense fallback={<h1>Loading..</h1>}>
+            <Grocery />
+          </Suspense>
+        ),
       },
       {
         path: "/restaurants/:resId",

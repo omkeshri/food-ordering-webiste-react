@@ -1,5 +1,6 @@
 import React from "react";
-import { defer } from "react-router-dom";
+// import { defer } from "react-router-dom";
+import UserContext from "../util/USerContext";
 
 class UserClass extends React.Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class UserClass extends React.Component {
   async componentDidMount(){
     const data = await fetch("https://api.github.com/users/omkeshri")
     const json = await data.json();
-    console.log(json)
+    // console.log(json)
 
     this.setState({
         userInfo: json
@@ -50,6 +51,10 @@ class UserClass extends React.Component {
         <h2>Name: {name}</h2>
         <h3>Location: {location}</h3>
         <img src={avatar_url}></img>
+
+        <UserContext.Consumer>
+          {({loggedInUser})=><h1>{loggedInUser}</h1>}
+        </UserContext.Consumer>
       </div>
     );
   }

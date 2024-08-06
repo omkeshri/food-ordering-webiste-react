@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { LOGO_URL } from "../util/constant";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../util/useOnlineStatus";
+import UserContext from "../util/USerContext";
 
 const Header = () => {
   const [btnName, setbtnName] = useState("LogIn");
+  const {loggedInUser} = useContext(UserContext);
   
 const online = useOnlineStatus();
   return (
@@ -16,7 +18,7 @@ const online = useOnlineStatus();
       </div>
       <div className="flex items-center">
         <ul className="flex">
-          <li className="px-4 font-medium">Online Status: {online? "🟢": "🔴"}</li>
+          <li className="px-4 font-medium">{loggedInUser}: {online? "🟢": "🔴"}</li>
           <li className="px-4 font-medium">
             <Link to={"/"}>Home</Link></li>
           <li className="px-4 font-medium">
@@ -27,6 +29,7 @@ const online = useOnlineStatus();
             <Link to={"/contact"}>Contact Us</Link></li>
           <li className="px-4 font-medium">
             <Link to={"/"}>Cart</Link></li>
+          
         </ul>
           <button
             className = "px-4 mr-5 py-2 bg-indigo-100 font-medium border-2 border-indigo-400 border-x-indigo-800 hover:bg-indigo-200 rounded-md"
