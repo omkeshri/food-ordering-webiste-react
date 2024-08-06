@@ -1,20 +1,14 @@
 import { useState, useRef, useEffect } from "react";
 import Item from "./Item";
-const RestaurantCategory = ({ data }) => {
-  const [showItems, setshowItems] = useState(false);
-  const [height, setHeight] = useState(0);
-  const itemRef = useRef(null);
+
+const RestaurantCategory = ({ data, showItems, setShowIndex}) => {
+  // const [showItems, setshowItems] = useState(false);
   const handleClick = () => {
     {
-      !showItems ? setshowItems(true) : setshowItems(false);
+      setShowIndex();
     }
   };
 
-  useEffect(() => {
-    if (itemRef.current) {
-      setHeight(showItems ? itemRef.current.scrollHeight : 0);
-    }
-  }, [showItems]);
 
   return (
     <div>
@@ -26,22 +20,14 @@ const RestaurantCategory = ({ data }) => {
           <span className="font-medium text-black text-md">
             {data.title.toUpperCase()} ({data.itemCards.length})
           </span>
-          <span
-            className={`transition-transform duration-300 ${
-              showItems ? "rotate-180" : ""
-            }`}
-          >
+          <span>
             🔻
           </span>
         </div>
 
-        <div
-            ref={itemRef}
-            style={{ maxHeight: `${height}px` }}
-            className="overflow-hidden transition-all duration-1000 ease-in-out"
-         >
-           {showItems && <Item items={data.itemCards} />}
-         </div>
+        <div>
+          {showItems && <Item items={data.itemCards} />}
+        </div>
       </div>
     </div>
   );

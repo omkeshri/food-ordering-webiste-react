@@ -2,20 +2,12 @@ import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../util/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
+import { useState } from "react";
 
 const RestaurantMenu = () => {
-  // const [resInfo, setresInfo] = useState(null);
   const { resId } = useParams();
   const resInfo = useRestaurantMenu(resId);
-  // useEffect(() => {
-  //   fetchMenu();
-  // }, []);
-
-  // const fetchMenu = async () => {
-  //   const data = await fetch(MENU_API + resId);
-  //   const json = await data.json();
-  //   setresInfo(json.data);
-  // };
+  const [showIndex, setshowIndex] = useState(0);
 
   if (resInfo === null) return <Shimmer />;
 
@@ -36,8 +28,13 @@ const RestaurantMenu = () => {
       <h3 className="font-medium  text-xl">{cuisines.join(", ")}</h3>
       <h3 className="font-medium">{costForTwoMessage}</h3>
       <div className="m-auto">
-        {categories.map((category) => (
-          <RestaurantCategory key={category?.card?.card?.title} data={category?.card?.card} />
+        {categories.map((category, index) => (
+          <RestaurantCategory
+            key={category?.card?.card?.title}
+            data={category?.card?.card}
+            showItems={showIndex === index ? true : false}
+            setShowIndex={() => setshowIndex(showIndex != index ? index : null)}
+          />
         ))}
       </div>
     </div>

@@ -33,7 +33,7 @@ export const withPromotedLabel = (RestaurantCard) => {
     const { resData } = props;
     return resData.info.avgRating >= 4.5 ? (
       <div>
-        <label className="py-1 px-3 ml-1  absolute bg-amber-400 rounded-md font-medium text-xs">
+        <label className="py-1 px-3 ml-1 my-2 absolute bg-amber-400 rounded-t-md font-medium text-xs bg-opacity-60">
           Top-Rated
         </label>
         <RestaurantCard {...props} />
