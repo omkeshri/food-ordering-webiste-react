@@ -6,6 +6,7 @@ import Body from "./components/Body";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
+import Dashboard from "./components/DashBoard";
 import RestaurantMenu from "./components/RestaurantMenu";
 import UserContext from "./util/USerContext";
 
@@ -85,6 +86,10 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: "/",
+        element: <Dashboard />,
+      },
+      {
+        path: "/restaurants",
         element: <Body />,
       },
       {
