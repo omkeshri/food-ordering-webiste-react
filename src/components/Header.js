@@ -14,21 +14,21 @@ const online = useOnlineStatus();
     <div>
     <div className="flex justify-between ">
       <div className="logo-container">
-        <img src={LOGO_URL} className="ml-5 w-20"></img>
+        <Link to={"/"}><img src={LOGO_URL} className="ml-5 w-20 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"></img></Link>
       </div>
       <div className="flex items-center">
         <ul className="flex">
-          <li className="px-4 font-medium">{loggedInUser}: {online? "🟢": "🔴"}</li>
-          <li className="px-4 font-medium">
+          <li className="px-4 py-2 font-medium">{loggedInUser}: {online? "🟢": "🔴"}</li>
+          <li className="py-2 px-4 font-medium transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
             <Link to={"/"}>Home</Link></li>
-          <li className="px-4 font-medium">
+          <li className="px-4 py-2 font-medium transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
             <Link to={"/about"}>About Us</Link></li>
-          <li className="px-4 font-medium">
-            <Link to={"/grocery"}>Grocery</Link></li>
-          <li className="px-4 font-medium">
+          {/* <li className="px-4 py-2 font-medium transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+            <Link to={"/grocery"}>Grocery</Link></li> */}
+          <li className="px-4 py-2 font-medium transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
             <Link to={"/contact"}>Contact Us</Link></li>
-          <li className="px-4 font-medium">
-            <Link to={"/"}>Cart</Link></li>
+          <li className="px-4 py-2 font-medium transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+            <Link to={"/"}>Cart 🛒</Link></li>
           
         </ul>
           <button

@@ -51,16 +51,19 @@ const Body = () => {
         <div className="mr-5 my-2">
           <input
             type="text"
+            name="search"
             className="px-2 h-7 border-2 border-black rounded-md mr-3"
+            placeholder="Search"
             value={searchText}
             onChange={(e) => {
               setsearchText(e.target.value);
+              console.log(searchText)
             }}
           ></input>
           <button
             className="font-medium py-1 px-5 border border-blue-500 bg-blue-300 rounded-md hover:bg-blue-400"
             onClick={() => {
-              console.log(searchText);
+              console.log(searchText)
               const filteredRestaurants = listofRestaurant.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
               );

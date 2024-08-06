@@ -15,13 +15,20 @@ const RestaurantCard = (props) => {
   // const {loggedInUser} = useContext(UserContext);
 
   return (
-    <div className="p-1 m-1 w-[242px] h-[340px] bg-neutral-200 rounded-lg hover:bg-neutral-300 flex flex-col justify-between">
+    <div className="p-1 m-1 w-[242px] h-[340px] bg-neutral-200 rounded-lg hover:bg-neutral-300 flex flex-col justify-between
+    transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
       <img
         className="p-1 h-40 w-full rounded-lg shadow-lg"
         src={CDN_URL + resData.info.cloudinaryImageId}
       ></img>
-      <h3 className="mt-2 text-center text-xl font-semibold px-2">{name.slice(0, 19)}{name.length>19?"...":""}</h3>
-      <h4 className="my-1 text-center font-medium px-4 text-sm">{cuisines.slice(0, 3).join(", ")}{cuisines.length>3?"...":""}</h4>
+      <h3 className="mt-2 text-center text-xl font-semibold px-2">
+        {name.slice(0, 19)}
+        {name.length > 19 ? "..." : ""}
+      </h3>
+      <h4 className="my-1 text-center font-medium px-4 text-sm">
+        {cuisines.slice(0, 3).join(", ")}
+        {cuisines.length > 3 ? "..." : ""}
+      </h4>
 
       <div className="m-2 flex justify-between">
         <h4 className="font-medium">⭐{avgRating}</h4>

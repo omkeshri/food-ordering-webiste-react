@@ -12,7 +12,7 @@ const RestaurantCategory = ({ data, showItems, setShowIndex}) => {
 
   return (
     <div>
-      <div className="mx-auto my-5 p-4 w-2/3 bg-gray-100 rounded-md shadow-lg">
+      <div className="mx-auto my-5 p-4 w-2/3 bg-gray-100 rounded-md shadow-lg hover:bg-gray-200">
         <div
           className="flex justify-between cursor-pointer"
           onClick={handleClick}
@@ -21,7 +21,7 @@ const RestaurantCategory = ({ data, showItems, setShowIndex}) => {
             {data.title.toUpperCase()} ({data.itemCards.length})
           </span>
           <span>
-            🔻
+            {showItems?"🔺":"🔻"}
           </span>
         </div>
 
