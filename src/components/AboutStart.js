@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 
 const AboutStart = ({showButton, showImage}) => {
     return(
-        <div className="my-20 mx-32 flex gap-36 items-center">
+          <div className="my-24 mx-32 flex gap-36 items-center">
           <img src={showImage===1?about1:about2} className="w-[600px] h-[500px] rounded-2xl"></img>
           <div>
             <h2 className="text-5xl font-serif tracking-wide mb-1">
-              We provide healthy
+              We provide quality
             </h2>
             <h2 className="text-5xl font-serif tracking-wider mb-4">
               food for your family
@@ -29,10 +29,10 @@ const AboutStart = ({showButton, showImage}) => {
             </p>
             {showButton?
             <Link to="/about">
-              <button className="p-2 mt-6 text-[#2C2F24] border-2  border-black rounded-xl font-medium transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">More About Us</button>
+              <button className="p-2 mt-6 text-[#2C2F24] border-2  border-black rounded-xl font-medium transition-custom">More About Us</button>
             </Link>:""}
           </div>
-        </div>
+          </div>
     )
 }
 

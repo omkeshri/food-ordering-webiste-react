@@ -22,11 +22,12 @@ const Dashboard = () => {
         at your doorstep.
       </p>
       <Link to="/restaurants">
-        <button className="p-2 my-2 absolute top-[450px] left-[702px] text-[#2C2F24] border-2  border-black rounded-xl font-medium transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+        <button className="p-2 my-2 absolute top-[450px] left-[702px] text-[#2C2F24] border-2  border-black rounded-xl font-medium transition-custom">
           Explore Menu
         </button>
       </Link>
         <AboutStart showButton={true} showImage={1}/>
+       
     </div>
   );
 };

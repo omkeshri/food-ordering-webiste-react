@@ -19,15 +19,15 @@ const online = useOnlineStatus();
       <div className="flex items-center">
         <ul className="flex">
           <li className="px-4 py-2 font-medium">{loggedInUser}: {online? "🟢": "🔴"}</li>
-          <li className="py-2 px-4 font-medium transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+          <li className="py-2 px-4 font-medium transition-custom">
             <Link to={"/"}>Home</Link></li>
-          <li className="px-4 py-2 font-medium transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 ">
+          <li className="px-4 py-2 font-medium transition-custom ">
             <Link to={"/about"}>About Us</Link></li>
-          <li className="px-4 py-2 font-medium transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+          <li className="px-4 py-2 font-medium transition-custom">
             <Link to={"/restaurants"}>Restaurants</Link></li>
-          <li className="px-4 py-2 font-medium transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+          <li className="px-4 py-2 font-medium transition-custom">
             <Link to={"/contact"}>Contact Us</Link></li>
-          <li className="px-4 py-2 font-medium transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+          <li className="px-4 py-2 font-medium transition-custom">
             <Link to={"/"}>Cart 🛒</Link></li>
           
         </ul>

@@ -23,7 +23,7 @@ const RestaurantMenu = () => {
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
   return (
-    <div className="m-2 text-center">
+    <div className="m-2 text-center mb-24">
       <h1 className="font-bold text-2xl">{name}</h1>
       <h3 className="font-medium  text-xl">{cuisines.join(", ")}</h3>
       <h3 className="font-medium">{costForTwoMessage}</h3>

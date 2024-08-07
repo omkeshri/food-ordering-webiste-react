@@ -15,8 +15,8 @@ const RestaurantCard = (props) => {
   // const {loggedInUser} = useContext(UserContext);
 
   return (
-    <div className="p-1 m-1 w-[242px] h-[340px] bg-neutral-200 rounded-lg hover:bg-neutral-300 flex flex-col justify-between
-    transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+    <div className="p-1 m-5 w-[242px] h-[340px] bg-zinc-100 rounded-lg hover:bg-neutral-300 flex flex-col justify-between
+    transition-custom shadow-2xl">
       <img
         className="p-1 h-40 w-full rounded-lg shadow-lg"
         src={CDN_URL + resData.info.cloudinaryImageId}
@@ -45,7 +45,7 @@ export const withPromotedLabel = (RestaurantCard) => {
     const { resData } = props;
     return resData.info.avgRating >= 4.5 ? (
       <div>
-        <label className="py-1 px-3 ml-1 my-2 absolute bg-amber-400 rounded-t-md font-medium text-xs bg-opacity-60">
+        <label className="py-1 px-3 ml-5 my-2 absolute bg-amber-400 rounded-t-md font-medium text-xs bg-opacity-60">
           Top-Rated
         </label>
         <RestaurantCard {...props} />

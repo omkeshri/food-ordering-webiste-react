@@ -46,7 +46,7 @@ const Body = () => {
   return listofRestaurant.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="body">
+    <div className="body mb-24 mx-10">
       <div className="filter flex justify-end mr-4">
         <div className="mr-5 my-2">
           <input

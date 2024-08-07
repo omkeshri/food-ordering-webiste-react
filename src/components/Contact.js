@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { GITHUB_LOGO, LINKEDIN_LOGO } from "../util/constant";
+import { GITHUB_LOGO, LINKEDIN_LOGO, GITHUB_URL, LINKEDIN_URL } from "../util/constant";
 
 const Contact = () => {
   return (
@@ -44,7 +44,7 @@ const Contact = () => {
           <h4 className="text-center tracking-wide">(+91) **********</h4>
           <div className="flex">
             <Link
-              to="https://github.com/omkeshri/react-learning.git"
+              to={GITHUB_URL}
               target="blank"
             >
               <button className="w-32 gap-1 flex items-center border-2 border-black px-2 bg-white rounded-md ml-24 mr-24 my-16
@@ -54,7 +54,7 @@ const Contact = () => {
               </button>
             </Link>
             <Link
-              to="https://www.linkedin.com/in/omkeshari/"
+              to={LINKEDIN_URL}
               target="blank"
             >
               <button className="w-32 flex items-center gap-1 border-2 border-black px-2 bg-white rounded-md my-16

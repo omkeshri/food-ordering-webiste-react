@@ -8,3 +8,6 @@ export const GITHUB_LOGO = "https://github.githubassets.com/assets/GitHub-Mark-e
 
 export const LINKEDIN_LOGO = "https://static.vecteezy.com/system/resources/previews/018/910/715/non_2x/linkedin-logo-linkedin-symbol-linkedin-icon-free-free-vector.jpg";
 
+export const GITHUB_URL = "https://github.com/omkeshri";
+
+export const LINKEDIN_URL = "https://www.linkedin.com/in/omkeshari/";

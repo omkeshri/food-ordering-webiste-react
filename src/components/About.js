@@ -13,15 +13,19 @@
 
 // export default About;
 import AboutStart from "./AboutStart";
-import twitter from "../images/TwitterLogo.png";
+import WebsitePros from "./WebsitePros";
+import InfoAbout from "./InfoAbout";
+import CustomerSay from "./CustomerSay";
 
 const About = () => {
-    return (
-        <div>
-        <AboutStart showButton={false} showImage={2}/>
-        {/* <img src={twitter} className="w-10"></img> */}
-        </div>
-    )
-}
+  return (
+    <div className="bg-[#F9F9F7] py-1">
+      <AboutStart showButton={false} showImage={2} />
+      <WebsitePros />
+      <InfoAbout />
+      <CustomerSay />
+    </div>
+  );
+};
 
 export default About;

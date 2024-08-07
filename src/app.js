@@ -8,6 +8,7 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import Dashboard from "./components/DashBoard";
 import RestaurantMenu from "./components/RestaurantMenu";
+import Footer from "./components/Footer";
 import UserContext from "./util/USerContext";
 
 // const heading = React.createElement("h1", { id: "heading" }, "Hello World from React!");
@@ -74,6 +75,7 @@ const AppLayout = () => {
       <div className="app">
         <Header />
         <Outlet />
+        <Footer />
       </div>
     </UserContext.Provider>
   );
