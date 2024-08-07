@@ -16,7 +16,7 @@ const AboutStart = ({showButton, showImage}) => {
             <p className="font-medium mb-4">
               Our story began with a vision to create a unique food delivery
               experience that brings the best local dining straight to your
-              door.From savory dishes to sweet treats, our platform is designed
+              door. From savory dishes to sweet treats, our platform is designed
               to make your dining experience exceptional, one delivery at a
               time.
             </p>

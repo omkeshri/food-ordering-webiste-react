@@ -36,23 +36,23 @@ const Footer = () => {
         <div className=" ">
           <h3 className="mb-8 font-medium text-sm">Pages</h3>
           <Link to={"/"}>
-          <p className="text-sm mb-3 ">Home</p></Link>
+          <p className="text-sm mb-3 transition-custom">Home</p></Link>
           <Link to={"/about"}>
-          <p className="text-sm mb-4 ">About</p></Link>
+          <p className="text-sm mb-4 transition-custom">About</p></Link>
           <Link to={"/restaurants"}>
-          <p className="text-sm mb-4 ">Restaurants</p></Link>
+          <p className="text-sm mb-4 transition-custom">Restaurants</p></Link>
           <Link to={"/contact"}>
-          <p className="text-sm mb-4 ">Contact</p></Link>
+          <p className="text-sm mb-4 transition-custom">Contact</p></Link>
           <Link to={"/"}>
-          <p className="text-sm mb-4 ">Cart</p></Link>
+          <p className="text-sm mb-4 transition-custom">Cart</p></Link>
         </div>
         <div className="">
           <h3 className="mb-8 font-medium text-sm">Utility Pages</h3>
-          <p className="text-sm mb-4 ">Start Here</p>
-          <p className="text-sm mb-4 ">Style Guide</p>
-          <p className="text-sm mb-4 ">404 Not Found</p>
-          <p className="text-sm mb-4 ">Licenses</p>
-          <p className="text-sm mb-4 ">View More</p>
+          <p className="text-sm mb-4">Start Here</p>
+          <p className="text-sm mb-4">Style Guide</p>
+          <p className="text-sm mb-4">404 Not Found</p>
+          <p className="text-sm mb-4">Licenses</p>
+          <p className="text-sm mb-4">View More</p>
         </div>
         <div className=" w-80">
             <h2 className="font-medium text-sm mb-8">Follow us on instagram</h2>
