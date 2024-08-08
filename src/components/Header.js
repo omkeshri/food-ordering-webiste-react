@@ -1,15 +1,21 @@
 import { useState } from "react";
 import { LOGO_URL } from "../util/constant";
 import { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import useOnlineStatus from "../util/useOnlineStatus";
-import UserContext from "../util/USerContext";
+import UserContext from "../util/UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [btnName, setbtnName] = useState("LogIn");
   const {loggedInUser} = useContext(UserContext);
+
+  const location = useLocation();
+  const isActive = (path) => location.pathname === path;
   
-const online = useOnlineStatus();
+  const online = useOnlineStatus();
+  const cartItems = useSelector((store) => store.cart.items);
+
   return (
     <div>
     <div className="flex justify-between ">
@@ -19,16 +25,16 @@ const online = useOnlineStatus();
       <div className="flex items-center">
         <ul className="flex">
           <li className="px-4 py-2 font-medium">{loggedInUser}: {online? "🟢": "🔴"}</li>
-          <li className="py-2 px-4 font-medium transition-custom">
+          <li className={`px-4 py-2 font-medium transition-custom ${isActive('/')? 'underline underline-offset-4':""}`}>
             <Link to={"/"}>Home</Link></li>
-          <li className="px-4 py-2 font-medium transition-custom ">
+          <li className={`px-4 py-2 font-medium transition-custom ${isActive('/about')? 'underline underline-offset-4':""}`}>
             <Link to={"/about"}>About Us</Link></li>
-          <li className="px-4 py-2 font-medium transition-custom">
+          <li className={`px-4 py-2 font-medium transition-custom ${isActive('/restaurants')? 'underline underline-offset-4':""}`}>
             <Link to={"/restaurants"}>Restaurants</Link></li>
-          <li className="px-4 py-2 font-medium transition-custom">
+          <li className={`px-4 py-2 font-medium transition-custom ${isActive('/contact')? 'underline underline-offset-4':""}`}>
             <Link to={"/contact"}>Contact Us</Link></li>
-          <li className="px-4 py-2 font-medium transition-custom">
-            <Link to={"/"}>Cart 🛒</Link></li>
+          <li className={`px-4 py-2 font-medium transition-custom ${isActive('/cart')? 'underline underline-offset-4':""}`}>
+            <Link to={"/cart"}>Cart🛒({cartItems.length})</Link></li>
           
         </ul>
           <button

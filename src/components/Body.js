@@ -1,5 +1,5 @@
 import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Shimmer from "./Shimmer.js";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../util/useOnlineStatus.js";
@@ -8,9 +8,7 @@ const Body = () => {
   const [listofRestaurant, setListofRestaurant] = useState([]);
   const [searchText, setsearchText] = useState("");
   const [filteredRestaurants, setfilteredRestaurant] = useState([]);
-
   const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
-
   useEffect(() => {
     fetchData();
   }, []);
@@ -21,27 +19,18 @@ const Body = () => {
     );
 
     const json = await data.json();
-    // console.log(json);
-    // console.log(json.data.success.cards[3].gridWidget.gridElements.infoWithStyle.restaurants)
     // Optional Chaining
-    const restaurants = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
-    setListofRestaurant(
-      restaurants
-    );
-    setfilteredRestaurant(
-      restaurants
-    );
+    const restaurants =
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants || [];
+    setListofRestaurant(restaurants);
+    setfilteredRestaurant(restaurants);
   };
 
   const onlinestatus = useOnlineStatus();
   if (onlinestatus === false) {
     return <h1>You are offline!</h1>;
   }
-
-  // Conditional Rendering
-  // if (listofRestaurant.length === 0){
-  //   return <Shimmer/>
-  // }
 
   return listofRestaurant.length === 0 ? (
     <Shimmer />
@@ -57,13 +46,11 @@ const Body = () => {
             value={searchText}
             onChange={(e) => {
               setsearchText(e.target.value);
-              console.log(searchText)
             }}
           ></input>
           <button
             className="font-medium py-1 px-5 border border-blue-500 bg-blue-300 rounded-md hover:bg-blue-400"
             onClick={() => {
-              console.log(searchText)
               const filteredRestaurants = listofRestaurant.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
               );

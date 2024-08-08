@@ -1,14 +1,11 @@
-import { useState, useRef, useEffect } from "react";
 import Item from "./Item";
 
-const RestaurantCategory = ({ data, showItems, setShowIndex}) => {
-  // const [showItems, setshowItems] = useState(false);
+const RestaurantCategory = ({ data, showItems, setShowIndex }) => {
   const handleClick = () => {
     {
       setShowIndex();
     }
   };
-
 
   return (
     <div>
@@ -20,14 +17,10 @@ const RestaurantCategory = ({ data, showItems, setShowIndex}) => {
           <span className="font-medium text-black text-md">
             {data.title.toUpperCase()} ({data.itemCards.length})
           </span>
-          <span>
-            {showItems?"🔺":"🔻"}
-          </span>
+          <span>{showItems ? "🔺" : "🔻"}</span>
         </div>
 
-        <div>
-          {showItems && <Item items={data.itemCards} />}
-        </div>
+        <div>{showItems && <Item items={data.itemCards} />}</div>
       </div>
     </div>
   );

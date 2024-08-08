@@ -2,3 +2,5 @@
 /dist
 .parcel-cache
 notes.md
+/src/components/User.js
+/src/components/UserClass.js

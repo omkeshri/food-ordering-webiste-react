@@ -1,9 +1,11 @@
 import dashboard from "../images/Dashboard.jpg";
-
 import { Link } from "react-router-dom";
 import AboutStart from "./AboutStart";
+import UserContext from "../util/UserContext";
+import { useContext } from "react";
 
 const Dashboard = () => {
+  const { setuserName } = useContext(UserContext);
   return (
     <div>
       <div>
@@ -18,16 +20,22 @@ const Dashboard = () => {
       <p className="absolute top-[400px] left-[570px] text-[#2C2F24] font-medium">
         Discover delectable cuisines and unforgettable moments
       </p>
-      <p className="absolute top-[420px] left-[700px] text-[#2C2F24] font-medium">
+      <p className="absolute top-[420px] left-[710px] text-[#2C2F24] font-medium">
         at your doorstep.
       </p>
       <Link to="/restaurants">
-        <button className="p-2 my-2 absolute top-[450px] left-[702px] text-[#2C2F24] border-2  border-black rounded-xl font-medium transition-custom">
+        <button className="p-2 my-2 absolute top-[443px] left-[840px] text-[#2C2F24] border-2  border-black rounded-xl font-medium transition-custom">
           Explore Menu
         </button>
       </Link>
-        <AboutStart showButton={true} showImage={1}/>
-       
+      <input
+        type="text"
+        autoFocus
+        className="p-1 px-2 my-2 text-amber-900 absolute top-[447px] left-[610px] border-2 border-black rounded-xl font-medium"
+        placeholder="Change UserName"
+        onChange={(e) => setuserName(e.target.value)}
+      ></input>
+      <AboutStart showButton={true} showImage={1} />
     </div>
   );
 };

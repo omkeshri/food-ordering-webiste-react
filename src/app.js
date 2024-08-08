@@ -1,83 +1,37 @@
-import React, { lazy, Suspense, useEffect, useState } from "react";
+import React, { lazy, Suspense, useEffect, useState, useContext } from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet, ScrollRestoration } from "react-router-dom";
 import Header from "./components/Header";
-import Body from "./components/Body";
-import About from "./components/About";
-import Contact from "./components/Contact";
 import Error from "./components/Error";
 import Dashboard from "./components/DashBoard";
-import RestaurantMenu from "./components/RestaurantMenu";
 import Footer from "./components/Footer";
-import UserContext from "./util/USerContext";
-
-// const heading = React.createElement("h1", { id: "heading" }, "Hello World from React!");
-// console.log(heading) // will give an object react
-
-// //React.createElement => React element-JS Object => HTML Element(render)
-// const parent = React.createElement("div", { id: "parent" }, [
-//   React.createElement("div", { id: "child1" }, [
-//     React.createElement("h1", {}, "I am an h1 tag"),
-//     React.createElement("h2", {}, "I am an h2 tag"),
-//   ]),
-//   React.createElement("div", { id: "child2" }, [
-//     React.createElement("h1", {}, "I am an h1 tag"),
-//     React.createElement("h2", {}, "I am an h2 tag"),
-//   ]),
-// ]); // CREATE ELEMENT USING REACT
-
-// const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(parent);
-
-// JSX => React.createElement => React element-JS Object => HTML Element(render)
-// const jsxHeading = (<h1 id = "heading" className="head1" tabIndex="1">Hello World from JSX!</h1>) // for multiline use braces
-
-// const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(jsxHeading);
-
-// React Functional Component
-// const Title = ()=>(
-//     <h1 className="head">
-//         Namaste
-//     </h1>
-// );
-
-// const data = 10000;
-
-// // Component Composition (component inside component)
-// const HeadingComponent = () =>(
-//     <div id="container">
-//         <Title/> {/*can use {Title()} or <Title></Title>*/ }
-//         {data}
-//         <h1 className="heading">Hello World from functional Component</h1>
-//     </div>
-// );
-
-// const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(<HeadingComponent />)
-
-// --------------------------------------------------------------------------------------------
+import UserContext from "./util/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./util/appStore";
+import Shimmer from "./components/Shimmer";
 
 const Grocery = lazy(() => import("./components/Grocery"));
+const Contact = lazy(() => import("./components/Contact"));
+const About = lazy(() => import("./components/About"));
+const Body = lazy(() => import("./components/Body"));
+const Cart = lazy(() => import("./components/Cart"));
+const RestaurantMenu = lazy(() => import("./components/RestaurantMenu"));
+
 
 const AppLayout = () => {
-  const [userName, setuserName] = useState();
+  const [userName, setuserName] = useState("Default User");
   
-  useEffect(() => {
-    // Make an Api call and send username and password
-    const data = {
-      name: "Om Keshri",
-    };
-    setuserName(data.name);
-  }, []);
   return (
-    <UserContext.Provider value={{ loggedInUser: userName }}>
-      <div className="app">
-        <Header />
-        <Outlet />
-        <Footer />
-      </div>
-    </UserContext.Provider>
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ loggedInUser: userName, setuserName }}>
+        <div className="app">
+          <Header />
+          <Outlet />
+          <ScrollRestoration />
+          <Footer />
+        </div>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 
@@ -92,15 +46,36 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/restaurants",
-        element: <Body />,
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            {" "}
+            <Body />
+          </Suspense>
+        ),
       },
       {
         path: "/about",
-        element: <About />,
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <About />
+          </Suspense>
+        ),
       },
       {
         path: "/contact",
-        element: <Contact />,
+        element: (
+          <Suspense fallback={<h1>Loading..</h1>}>
+            <Contact />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/cart",
+        element: (
+          <Suspense fallback={<h1>Loading..</h1>}>
+            <Cart />
+          </Suspense>
+        ),
       },
       {
         path: "/grocery",
@@ -112,7 +87,11 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/restaurants/:resId",
-        element: <RestaurantMenu />,
+        element: (
+          <Suspense fallback={<h1>Loading..</h1>}>
+            <RestaurantMenu />
+          </Suspense>
+        ),
       },
     ],
     errorElement: <Error />,
