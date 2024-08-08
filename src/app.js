@@ -1,6 +1,11 @@
-import React, { lazy, Suspense, useEffect, useState, useContext } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider, Outlet, ScrollRestoration } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Outlet,
+  ScrollRestoration,
+} from "react-router-dom";
 import Header from "./components/Header";
 import Error from "./components/Error";
 import Dashboard from "./components/DashBoard";
@@ -17,10 +22,9 @@ const Body = lazy(() => import("./components/Body"));
 const Cart = lazy(() => import("./components/Cart"));
 const RestaurantMenu = lazy(() => import("./components/RestaurantMenu"));
 
-
 const AppLayout = () => {
   const [userName, setuserName] = useState("Default User");
-  
+
   return (
     <Provider store={appStore}>
       <UserContext.Provider value={{ loggedInUser: userName, setuserName }}>
