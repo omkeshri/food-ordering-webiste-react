@@ -1,6 +1,4 @@
 import { CDN_URL } from "../util/constant";
-// import { useContext } from "react";
-// import UserContext from "../util/USerContext";
 
 const RestaurantCard = (props) => {
   const { resData } = props;
@@ -12,11 +10,12 @@ const RestaurantCard = (props) => {
     cloudinaryImageId,
     totalRatingsString,
   } = resData?.info;
-  // const {loggedInUser} = useContext(UserContext);
 
   return (
-    <div className="p-1 m-5 w-[242px] h-[340px] bg-zinc-100 rounded-lg hover:bg-neutral-300 flex flex-col justify-between
-    transition-custom shadow-2xl">
+    <div
+      className="p-1 m-5 w-[242px] h-[340px]  rounded-lg hover:bg-neutral-300 flex flex-col justify-between
+    transition-custom shadow-2xl border border-black border-opacity-10"
+    >
       <img
         className="p-1 h-40 w-full rounded-lg shadow-lg"
         src={CDN_URL + resData.info.cloudinaryImageId}
@@ -35,7 +34,6 @@ const RestaurantCard = (props) => {
         <h4 className="font-medium">{costForTwo}</h4>
       </div>
       <h4 className="pb-2 ml-2 font-medium">Rating: {totalRatingsString} </h4>
-      {/* <h4 className="pb-2 ml-2 font-medium">Rating: {loggedInUser} </h4> */}
     </div>
   );
 };

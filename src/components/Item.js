@@ -7,7 +7,7 @@ const Item = ({ items }) => {
 
   const handleAddItems = (item) => {
     dispatch(addItem(item));
-  }
+  };
   return (
     <div>
       {items.map((item) => (
@@ -25,11 +25,16 @@ const Item = ({ items }) => {
                   item.card.info.defaultPrice / 100}
               </span>
             </div>
-            <p className="text-sm tracking-wide">{item.card.info.description || item?.card?.info?.name}</p>
+            <p className="text-sm tracking-wide">
+              {item.card.info.description || item?.card?.info?.name}
+            </p>
           </div>
           <div className="w-3/12 p-4">
             <div className="absolute ">
-              <button className="px-3 py-1 bg-slate-50 m-auto rounded-sm text-xs font-bold opacity-80 transition-custom" onClick={() => handleAddItems(item)}>
+              <button
+                className="px-3 py-1 bg-slate-50 m-auto rounded-sm text-xs font-bold opacity-80 transition-custom"
+                onClick={() => handleAddItems(item)}
+              >
                 Add+
               </button>
             </div>
@@ -45,7 +50,3 @@ const Item = ({ items }) => {
 };
 
 export default Item;
-
-// height: 144px;
-//     aspect-ratio: auto 156 / 144;
-//     width: 156px;

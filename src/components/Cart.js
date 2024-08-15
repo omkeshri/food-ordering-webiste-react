@@ -20,7 +20,6 @@ const Cart = () => {
   handleClearCart = () => {
     dispatch(clearCart());
   };
-  console.log(cartItems);
 
   return (
     <div>
@@ -43,11 +42,14 @@ const Cart = () => {
         </div>
         <div className="w-2/3 text-center">
           <Item items={cartItems} />
-          {cartItems.length === 0 && <h1 className="m-4 font-medium text-2xl">Your cart is empty!</h1>}
+          {cartItems.length === 0 && (
+            <h1 className="m-4 font-medium text-2xl">Your cart is empty!</h1>
+          )}
         </div>
-        <div className="w-2/3 text-right font-medium m-3 text-xl tracking-wider"><span className="text-2xl">Total:</span> {" "}Rs. 
-               {totalPrice / 100}
-            </div>
+        <div className="w-2/3 text-right font-medium m-3 text-xl tracking-wider">
+          <span className="text-2xl">Total:</span> Rs.
+          {totalPrice / 100}
+        </div>
       </div>
     </div>
   );
