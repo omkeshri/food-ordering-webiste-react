@@ -1,7 +1,6 @@
 # Food Ordering Website
 
-__Demo__: https://food-ordering-website-omkeshri.web.app/
-<a href="https://food-ordering-website-omkeshri.web.app/" target="_blank">GitHub</a>
+## Demo:  https://food-ordering-website-omkeshri.web.app/
 
 __This project is a React-based food ordering website integrated with the Swiggy API. The application allows users to browse restaurant menus, place orders, and manage their cart with ease. Redux is utilized for efficient state management, and Tailwind CSS is used for crafting a responsive and modern design.__
 
@@ -20,3 +19,13 @@ __This project is a React-based food ordering website integrated with the Swiggy
 - __Tailwind CSS__: Utility-first CSS framework for responsive and modern design.
 - __JavaScript (ES6+)__: Core language used for development.
 
+## Enable CORS:
+To ensure that the application can properly make API requests to the Swiggy API (or any other external API that may not have CORS enabled), you might need to enable CORS in your browser.
+- Install a CORS enabling browser extension:
+- After installing the extension, make sure it is enabled.
+
+## Contributing
+Feel free to fork this repository and contribute by submitting a pull request. For major changes, please open an issue first to discuss what you would like to change.
+
+## License
+This project is licensed under the MIT License. Check the license file here: [LICENSE](LICENSE)
