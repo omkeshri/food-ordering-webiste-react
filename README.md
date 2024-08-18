@@ -21,7 +21,7 @@ __This project is a React-based food ordering website integrated with the Swiggy
 
 ## Enable CORS:
 To ensure that the application can properly make API requests to the Swiggy API (or any other external API that may not have CORS enabled), you might need to enable CORS in your browser.
-- Install a CORS enabling browser extension:
+- Install a CORS enabling browser extension.
 - After installing the extension, make sure it is enabled.
 
 ## Contributing
