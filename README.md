@@ -9,7 +9,7 @@ __This project is a React-based food ordering website integrated with the Swiggy
 - __Search and Filter__: Easily search for specific dishes or filter by restaurant type.
 - __Add to Cart__: Seamlessly add or remove items from the cart with real-time updates.
 - __Order Management__: Review and place orders with a streamlined checkout process.
-- __Responsive Design__: Optimized for both desktop and mobile devices using Tailwind CSS. (Will update soon..)
+- __Responsive Design__: Optimized for both desktop and mobile devices using Tailwind CSS. ( Will be updated soon.. )
 
 ## Technologies Used
 - __React__: Front-end framework for building the user interface.
