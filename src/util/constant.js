@@ -4,10 +4,6 @@ export const LOGO_URL = "https://www.logodee.com/wp-content/uploads/2022/07/litt
 
 export const MENU_API = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=31.2195994&lng=75.7633405&restaurantId="
 
-export const GITHUB_LOGO = "https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png";
-
-export const LINKEDIN_LOGO = "https://static.vecteezy.com/system/resources/previews/018/910/715/non_2x/linkedin-logo-linkedin-symbol-linkedin-icon-free-free-vector.jpg";
-
 export const GITHUB_URL = "https://github.com/omkeshri";
 
 export const LINKEDIN_URL = "https://www.linkedin.com/in/omkeshari/";

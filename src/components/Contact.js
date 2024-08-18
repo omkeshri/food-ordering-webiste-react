@@ -1,22 +1,82 @@
+import { Link } from "react-router-dom";
+import {
+  GITHUB_URL,
+  LINKEDIN_URL,
+} from "../util/constant";
+import GITHUB_LOGO  from "../images/GithubLogoContact.png";
+import LINKEDIN_LOGO  from "../images/LinkedInLogoContact.jpg";
+
 const Contact = () => {
   return (
-    <div>
-      <h1 className="font-bold text-3xl p-4 m-4">Contact Us Page</h1>
-      <form>
-        <input
-          type="text"
-          className=" border border-black p-2 m-2"
-          placeholder="name"
-        />
-        <input
-          type="text"
-          className=" border border-black p-2 m-2"
-          placeholder="message"
-        />
-        <button className=" border border-black p-2 m-2 bg-gray-100 rounded-lg">
-          Submit
-        </button>
-      </form>
+    <div className="p-4 pb-20 bg-slate-50">
+      <div>
+        <h3 className="text-center text-xl tracking-wider">Have a Query?</h3>
+        <h1 className="text-center text-7xl tracking-widest">Contact Us</h1>
+      </div>
+      <div className="flex justify-between mt-10">
+        <div className="ml-32">
+          <form className="m-2">
+            <h2 className="text-center tracking-widest font-medium underline underline-offset-4">
+              ONLINE ENQUIRY
+            </h2>
+            <input
+              type="text"
+              autoFocus
+              placeholder="Name"
+              className="w-[500px] p-2 block m-4 mb-6 shadow-md"
+            ></input>
+            <input
+              type="text"
+              placeholder="Email"
+              className="w-[500px] p-2 block m-4 mb-6 shadow-md"
+            ></input>
+            <input
+              type="text"
+              placeholder="Phone"
+              className="w-[500px] p-2 block m-4 mb-6 shadow-md"
+            ></input>
+            <textarea
+              placeholder="Message"
+              className="w-[500px] p-2 block m-4 mb-6 h-52 shadow-md"
+            ></textarea>
+            <button
+              type="submit"
+              className=" mx-4 w-24 p-1 flex items-center justify-center gap-1 border-2 border-black px-2 bg-white rounded-md
+              0"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+
+        <div className="mr-32 w-[500px]">
+          <h2 className="text-center tracking-widest m-2 font-medium mb-8 underline underline-offset-4">
+            CONTACT DETAILS
+          </h2>
+          <h4 className="text-center tracking-wide">omkeshri21@gmail.com</h4>
+          <h4 className="text-center tracking-wide">(+91) **********</h4>
+          <div className="flex">
+            <Link to={GITHUB_URL} target="blank">
+              <button
+                className="w-32 gap-1 flex items-center border-2 border-black px-2 bg-white rounded-md ml-24 mr-24 my-16
+              transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
+              >
+                <img src={GITHUB_LOGO} className="w-10"></img>
+                <p>GitHub</p>
+              </button>
+            </Link>
+            <Link to={LINKEDIN_URL} target="blank">
+              <button
+                className="w-32 flex items-center gap-1 border-2 border-black px-2 bg-white rounded-md my-16
+              transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
+              >
+                <img src={LINKEDIN_LOGO} className="w-10"></img>
+                <p>LinkedIn</p>
+              </button>
+            </Link>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

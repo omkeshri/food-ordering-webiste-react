@@ -17,7 +17,7 @@ const Cart = () => {
   }, [cartItems]);
 
   const dispatch = useDispatch();
-  handleClearCart = () => {
+  const handleClearCart = () => {
     dispatch(clearCart());
   };
 
