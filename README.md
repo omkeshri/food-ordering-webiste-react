@@ -4,6 +4,8 @@
 
 __This project is a React-based food ordering website integrated with the Swiggy API. The application allows users to browse restaurant menus, place orders, and manage their cart with ease. Redux is utilized for efficient state management, and Tailwind CSS is used for crafting a responsive and modern design.__
 
+__Disclaimer: Use any CORS enable extension to access restaurant data.
+
 ## Features
 - __Browse Restaurants__: Explore a wide range of restaurant menus directly from the Swiggy API.
 - __Search and Filter__: Easily search for specific dishes or filter by restaurant type.
