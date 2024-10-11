@@ -8,3 +8,4 @@ notes.md
 /src/util/firebase.js
 /firebase.json
 .firebaserc
+.firebase/
