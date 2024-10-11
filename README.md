@@ -1,7 +1,5 @@
 # Food Ordering Website
 
-## Demo:  https://food-ordering-website-omkeshri.web.app/
-
 __This project is a React-based food ordering website integrated with the Swiggy API. The application allows users to browse restaurant menus, place orders, and manage their cart with ease. Redux is utilized for efficient state management, and Tailwind CSS is used for crafting a responsive and modern design.__
 
 __Disclaimer__: Use any CORS enable extension to access restaurant data.
